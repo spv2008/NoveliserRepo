@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="NoveliserWPF.StartPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Margin="0,0,0,0">
+    <Grid Background="#454854">
+        <StackPanel HorizontalAlignment="Left" Height="356" Orientation="Vertical" VerticalAlignment="Top" Width="143" Background="#454854">
+            <Label Content="New Project" Name="NewProjectLabel" MouseDown="NewProjectLabel_OnMouseDown" Foreground="#ffffff"/>
+            <Label Content="Open Project" Name="OpenProjectLabel" MouseDown="OpenProjectLabel_OnMouseDown" Foreground="#ffffff"/>
+            <Label Content="Recent Projects" Name="RecentProjectsLabel" Foreground="#ffffff"/>
+        </StackPanel>
+        <ListBox Margin="143,0,0,0" MinWidth="350" />
+    </Grid>
+</UserControl>

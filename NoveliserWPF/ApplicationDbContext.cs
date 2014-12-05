@@ -50,7 +50,7 @@ namespace NoveliserWPF
         public string folderName { get; set; }
         public string iconType { get; set; }
 
-        public virtual ICollection<Folder> parentFolder { get; set; }
+        public virtual ICollection<Folder> SubFolders { get; set; }
         public virtual ICollection<FolderFile> Files { get; set; }
     }
 
@@ -63,8 +63,6 @@ namespace NoveliserWPF
         public int Id { get; set; }
 
         public string fileName { get; set; }
-
-
     }
 
     public class FileText : FolderFile
