@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="NoveliserWPF.TextControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Margin="0,0,0,0">
+             xmlns:fluent="urn:fluent-ribbon" x:Class="NoveliserWPF.TextControl" 
+             mc:Ignorable="d" Margin="0,0,0,0" Loaded="TextControl_OnLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -12,65 +13,76 @@
         <DockPanel LastChildFill="True">
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button Command="Undo">
-                        <Image Source="Resources\undo.ico"></Image>
+                    <Button Command="Undo" ToolTip="Undo">
+                        <Image Source="Resources\undo.ico"/>
                     </Button>
-                    <Button Command="Redo">
-                        <Image Source="Resources\redo.ico"></Image>
+                    <Button Command="Redo" ToolTip="Redo">
+                        <Image Source="Resources\redo.ico"/>
                     </Button>
                     <Separator/>
-                    <Button Command="Cut">
-                        <Image Source="Resources\cut.ico"></Image>
+                    <Button Command="Cut" ToolTip="Cut">
+                        <Image Source="Resources\cut.ico"/>
                     </Button>
-                    <Button Command="Copy">
-                        <Image Source="Resources\copy.ico"></Image>
+                    <Button Command="Copy" ToolTip="Copy">
+                        <Image Source="Resources\copy.ico"/>
                     </Button>
-                    <Button Command="Paste">
-                        <Image Source="Resources\paste.ico"></Image>
+                    <Button Command="Paste" ToolTip="Paste">
+                        <Image Source="Resources\paste.ico"/>
                     </Button>
                     <Separator />
-                    <Button Command="ToggleBold">
-                        <Image Source="Resources\bold.ico"></Image>
+                    <Button Command="ToggleBold" ToolTip="Bold">
+                        <Image Source="Resources\bold.ico"/>
                     </Button>
-                    <Button Command="ToggleUnderline">
-                        <Image Source="Resources\underline.ico"></Image>
+                    <Button Command="ToggleUnderline" ToolTip="Underline">
+                        <Image Source="Resources\underline.ico"/>
                     </Button>
-                    <Button Command="ToggleItalic">
-                        <Image Source="Resources\italic.ico"></Image>
-                    </Button>
-                </ToolBar>
-                <ToolBar>
-                    <Button Command="AlignLeft">
-                        <Image Source="Resources\alignleft.ico"></Image>
-                    </Button>
-                    <Button Command="AlignCenter">
-                        <Image Source="Resources\center.ico"></Image>
-                    </Button>
-                    <Button Command="AlignRight">
-                        <Image Source="Resources\alignright.ico"></Image>
-                    </Button>
-                    <Button Command="IncreaseIndentation">
-                        <Image Source="Resources\indent.ico"></Image>
-                    </Button>
-                    <Button Command="DecreaseIndentation">
-                        <Image Source="Resources\unindent.ico"></Image>
+                    <Button Command="ToggleItalic" ToolTip="Italic">
+                        <Image Source="Resources\italic.ico"/>
                     </Button>
                 </ToolBar>
                 <ToolBar>
-                    <Button Command="ToggleBullets">
-                        <Image Source="Resources\bulletlist.ico"></Image>
+                    <Button Command="AlignLeft" ToolTip="Align Left">
+                        <Image Source="Resources\alignleft.ico"/>
                     </Button>
-                    <Button Command="ToggleNumbering">
-                        <Image Source="Resources\numberedlist.ico"></Image>
+                    <Button Command="AlignCenter" ToolTip="Align Center">
+                        <Image Source="Resources\center.ico"/>
+                    </Button>
+                    <Button Command="AlignRight" ToolTip="Align Right">
+                        <Image Source="Resources\alignright.ico"/>
+                    </Button>
+                    <Separator/>
+                    <Button Command="IncreaseIndentation" ToolTip="Indent">
+                        <Image Source="Resources\indent.ico"/>
+                    </Button>
+                    <Button Command="DecreaseIndentation" ToolTip="Unindent">
+                        <Image Source="Resources\unindent.ico"/>
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Button Command="ToggleBullets" ToolTip="Bulletpoints">
+                        <Image Source="Resources\bulletlist.ico"/>
+                    </Button>
+                    <Button Command="ToggleNumbering" ToolTip="Number">
+                        <Image Source="Resources\numberedlist.ico"/>
                     </Button>
                 </ToolBar>
             </ToolBarTray>
         </DockPanel>
-        <RichTextBox Grid.Row="1" Padding="0,0,5,0">
+        <RichTextBox Grid.Row="1" Padding="10" SpellCheck.IsEnabled="True">
+            <!--<RichTextBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Cut" Command="Cut" />
+                    <MenuItem Header="Copy" Command="Copy" />
+                    <MenuItem Header="Paste" Command="Paste" />
+                    <Separator/>
+                    <MenuItem Header="Select All" Command="SelectAll" />
+                    <Separator/>
+                    <MenuItem Header="Correct Spelling" Command="CorrectSpellingError" />
+                    <MenuItem Header="Ignore Spelling" Command="IgnoreSpellingError" />
+                </ContextMenu>
+            </RichTextBox.ContextMenu>-->
             <FlowDocument>
-                <Paragraph>
-
-                </Paragraph>
+                <Paragraph/>
             </FlowDocument>
         </RichTextBox>
 

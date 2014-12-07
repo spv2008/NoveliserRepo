@@ -1,10 +1,11 @@
-﻿<Window
+﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:NoveliserWPF"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         x:Class="NoveliserWPF.MainWindow"
-        Title="MainWindow" Height="344.853" Width="629.904" Loaded="MainWindow_OnLoaded">
+        Title="Noveliser" Height="344.853" Width="629.904" Loaded="MainWindow_OnLoaded" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <!--<Window.Resources>
         <HierarchicalDataTemplate x:Key="NovelProjectDataTemplate" ItemsSource="{Binding Folder}">
             
@@ -20,57 +21,53 @@
         <KeyBinding Command="{x:Static local:MainWindow.TabCloseCommand}" Key="W" Modifiers="Control"></KeyBinding>
     </Window.InputBindings>
     <Grid>
+        <DockPanel Height="30" LastChildFill="True" VerticalAlignment="Top">
 
-        <DockPanel Height="24" LastChildFill="True" Margin="0,0,0,0" VerticalAlignment="Top">
-
-            <Menu Background="#303340" Foreground="#ffffff">
+            <Menu Height="30">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <DockPanel HorizontalAlignment="Stretch" />
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
                 
-                <MenuItem Header="_File" Height="25" Background="#303340" Foreground="#ffffff">
-                    <MenuItem Header="_New" HorizontalAlignment="Left"/>
-                    <MenuItem Header="_Open" HorizontalAlignment="Left"/>
-                    <MenuItem Header="_Save" HorizontalAlignment="Left"/>
-                    <MenuItem Header="_Save As" HorizontalAlignment="Left"/>
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" HorizontalAlignment="Left" Width="150"/>
+                    <MenuItem Header="_Open" HorizontalAlignment="Left" Width="150"/>
+                    <MenuItem Header="_Save" HorizontalAlignment="Left" Width="150"/>
+                    <MenuItem Header="_Save As" HorizontalAlignment="Left" Width="150"/>
                     <Separator />
-                    <MenuItem Header="_Exit" HorizontalAlignment="Left" Name="ExitMenuItem" Click="ExitMenuItem_OnClick"/>
+                    <MenuItem Header="_Exit" HorizontalAlignment="Left" Name="ExitMenuItem" Click="ExitMenuItem_OnClick" Width="150"/>
                 </MenuItem>
-                <MenuItem Header="_Edit" Background="#303340" Foreground="#ffffff">
+                <MenuItem Header="_Edit">
                 </MenuItem>
-                <MenuItem Header="_View" Background="#303340" Foreground="#ffffff">
+                <MenuItem Header="_View">
                     <MenuItem Header="View Start Page" HorizontalAlignment="Left" Name="startPageMenuItem" Click="MenuItem_OnClick"/>
 
                 </MenuItem>
-                <MenuItem Header="_Tools" Background="#303340" Foreground="#ffffff">
+                <MenuItem Header="_Tools">
 
                 </MenuItem>
-                <MenuItem Header="_Help" Background="#303340" Foreground="#ffffff">
+                <MenuItem Header="_Help">
 
                 </MenuItem>
-                <MenuItem Margin="0,0,0,0" Padding="0,0,0,0" HorizontalAlignment="Right" StaysOpenOnClick="True" Name="SearchMenuItem">
-                    <MenuItem.HeaderTemplate>
-                        <DataTemplate>
-                            <xctk:WatermarkTextBox Margin="0,0,0,0" Width="100" Watermark="Search Files" ToolTip="Type a search parameter to search through all files." Name="searchTextBox" LostFocus="SearchBox_OnLostFocus">
-                                <xctk:WatermarkTextBox.InputBindings>
-                                    <KeyBinding Key="Enter" Command="Search" />
-                                </xctk:WatermarkTextBox.InputBindings>
-                                <xctk:WatermarkTextBox.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Command="Cut" Header="Cut" />
-                                        <MenuItem Command="Copy" Header="Copy" />
-                                        <MenuItem Command="Paste" Header="Paste" />
-                                        <Separator />
-                                        <MenuItem Command="SelectAll"  Header="Select All" />
-                                        <MenuItem Command="Search"  Header="Paste" />
-                                    </ContextMenu>
-                                </xctk:WatermarkTextBox.ContextMenu>
-                            </xctk:WatermarkTextBox>
-                        </DataTemplate>
-                    </MenuItem.HeaderTemplate>
-                </MenuItem>
+            </Menu>
+            <DockPanel>
+                <xctk:WatermarkTextBox DockPanel.Dock="Right" Height="26" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,2,0,0" Width="160" Watermark="Search Files" ToolTip="Type a search parameter to search through all files." Name="searchTextBox" LostFocus="SearchBox_OnLostFocus">
+                    <xctk:WatermarkTextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="Search" />
+                    </xctk:WatermarkTextBox.InputBindings>
+                    <xctk:WatermarkTextBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="Cut" Header="Cut" />
+                            <MenuItem Command="Copy" Header="Copy" />
+                            <MenuItem Command="Paste" Header="Paste" />
+                            <Separator />
+                            <MenuItem Command="SelectAll"  Header="Select All" />
+                            <MenuItem Command="Search"  Header="Paste" />
+                        </ContextMenu>
+                    </xctk:WatermarkTextBox.ContextMenu>
+                </xctk:WatermarkTextBox>
+        </DockPanel>
                 <!--<MenuItem Name="UserBadge">
                     <MenuItem.HeaderTemplate>
                         <DataTemplate>
@@ -88,17 +85,16 @@
                         </DataTemplate>
                     </MenuItem.HeaderTemplate>
                 </MenuItem>-->
-            </Menu>
         </DockPanel>
-        <Grid Margin="0,24,0,0">
+        <Grid Margin="0,30,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="155*" MaxWidth="250"/>
                 <ColumnDefinition Width="386*"/>
             </Grid.ColumnDefinitions>
-            <TreeView Grid.Column="0" Name="MainNavigation" Background="#454854" Foreground="#ffffff">
+            <TreeView Grid.Column="0" Name="MainNavigation" BorderBrush="LightSlateGray" BorderThickness="1">
                 
             </TreeView>
-            <TabControl x:Name="MainTabs" Grid.Column="1" Background="#454854">
+            <TabControl x:Name="MainTabs" Grid.Column="1" Margin="3,0,0,0">
                 <!--<TabControl.Resources>
                     <Style TargetType="TabItem">
                         <Setter Property="Template">
@@ -129,16 +125,16 @@
                         <Setter Property="HeaderTemplate">
                             <Setter.Value>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" Margin="-7,-4,-7,-4"  Height="28" Background="#303340">
-                                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0"  Text="{TemplateBinding Content}" Foreground="#FFFFFF"/>
+                                    <StackPanel Orientation="Horizontal" Height="25">
+                                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0"  Text="{TemplateBinding Content}" />
                                         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="18" Height="18" ToolTip="Close Tab"
                                 Margin="6,0,0,0" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" 
                                 Command="{x:Static local:MainWindow.TabCloseCommand}"
                                 CommandParameter="{Binding}"
                                 VerticalAlignment="Center" Focusable="False">
                                             <Grid Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                                <Line StrokeThickness="3" StrokeStartLineCap="Round"  StrokeEndLineCap="Round" Stroke="#677978" X1="1" Y1="1" X2="9" Y2="9" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                <Line StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Stroke="#677978" X1="1" Y1="9" X2="9" Y2="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                <Line StrokeThickness="1" StrokeStartLineCap="Round"  StrokeEndLineCap="Round" Stroke="#677978" X1="1" Y1="1" X2="9" Y2="9" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                <Line StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Stroke="#677978" X1="1" Y1="9" X2="9" Y2="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                             </Grid>
                                         </Button>
                                     </StackPanel>
@@ -148,8 +144,8 @@
                     </Style>
                 </TabControl.ItemContainerStyle>
 
-                <TabItem Header="Start Page" Name="startPageItem">
-                    <Grid Background="#454854">
+                <TabItem Header="Start Page" Name="startPageItem" Margin="0,0,0,0">
+                    <Grid Margin="-5,-2,0,0">
 
                     </Grid>
                 </TabItem>
@@ -159,4 +155,4 @@
         </Grid>
 
     </Grid>
-</Window>
+</Controls:MetroWindow>

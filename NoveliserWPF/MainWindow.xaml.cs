@@ -14,13 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NoveliserWPF.Dialogs;
 using XCToolkit = Xceed.Wpf.Toolkit;
+using MahApps.Metro.Controls;
 
 namespace NoveliserWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         // ReSharper disable once MemberCanBePrivate.Global
         public static readonly RoutedCommand TabCloseCommand = new RoutedCommand();
@@ -52,95 +53,97 @@ namespace NoveliserWPF
         {
             List<NovelProject> entityList = new List<NovelProject>();
             MainNavigation.ItemsSource = entityList;
-            //DEBUGLoadData();
+            //_DebugLoadData();
             ShowStartPage();
+            ShowTextPage(0, "Untitled");
             MainTabs.Items.RemoveAt(0);
         }
 
-        private void DEBUGLoadData()
+        private void _DebugLoadData()
         {
             using (var context = new ApplicationDbContext())
             {
-                var proj = new NovelProject();
-                proj.ProjectName = "Cold Reboot";
-                var fold = new Folder();
-                var subfold = new Folder();
-                fold.folderName = "Characters";
-                subfold.folderName = "Good";
-                fold.SubFolders.Add(subfold);
-                subfold = new Folder();
-                subfold.folderName = "Bad";
-                fold.SubFolders.Add(subfold);
-                subfold = new Folder();
-                subfold.folderName = "Neutral";
-                fold.SubFolders.Add(subfold);
-                proj.Folders.Add(fold);
-                fold = new Folder();
-                fold.folderName = "Locations";
-                proj.Folders.Add(fold);
-                fold = new Folder();
-                fold.folderName = "Plot Line";
-                subfold = new Folder();
-                subfold.folderName = "Events";
-                fold.SubFolders.Add(subfold);
-                proj.Folders.Add(fold);
-                context.NovelProjects.Add(proj);
+                //var proj = new NovelProject();
+                //proj.ProjectName = "Cold Reboot";
+                //var fold = new Folder();
+                //var subfold = new Folder();
+                //fold.folderName = "Characters";
+                //subfold.folderName = "Good";
+                //fold.SubFolders.Add(subfold);
+                //subfold = new Folder();
+                //subfold.folderName = "Bad";
+                //fold.SubFolders.Add(subfold);
+                //subfold = new Folder();
+                //subfold.folderName = "Neutral";
+                //fold.SubFolders.Add(subfold);
+                //proj.Folders.Add(fold);
+                //fold = new Folder();
+                //fold.folderName = "Locations";
+                //proj.Folders.Add(fold);
+                //fold = new Folder();
+                //fold.folderName = "Plot Line";
+                //subfold = new Folder();
+                //subfold.folderName = "Events";
+                //fold.SubFolders.Add(subfold);
+                //proj.Folders.Add(fold);
+                //context.NovelProjects.Add(proj);
 
-                proj = new NovelProject();
-                proj.ProjectName = "Shadow of a Hero";
-                fold = new Folder();
-                subfold = new Folder();
-                fold.folderName = "Characters";
-                subfold = new Folder();
-                subfold.folderName = "Good";
-                fold.SubFolders.Add(subfold);
-                subfold = new Folder();
-                subfold.folderName = "Bad";
-                fold.SubFolders.Add(subfold);
-                subfold = new Folder();
-                subfold.folderName = "Neutral";
-                fold.SubFolders.Add(subfold);
-                proj.Folders.Add(fold);
-                fold = new Folder();
-                fold.folderName = "Locations";
-                proj.Folders.Add(fold);
-                fold = new Folder();
-                fold.folderName = "Plot Line";
-                subfold = new Folder();
-                subfold.folderName = "Events";
-                fold.SubFolders.Add(subfold);
-                proj.Folders.Add(fold);
-                proj = new NovelProject();
-                context.NovelProjects.Add(proj);
+                //proj = new NovelProject();
+                //proj.ProjectName = "Shadow of a Hero";
+                //fold = new Folder();
+                //subfold = new Folder();
+                //fold.folderName = "Characters";
+                //subfold = new Folder();
+                //subfold.folderName = "Good";
+                //fold.SubFolders.Add(subfold);
+                //subfold = new Folder();
+                //subfold.folderName = "Bad";
+                //fold.SubFolders.Add(subfold);
+                //subfold = new Folder();
+                //subfold.folderName = "Neutral";
+                //fold.SubFolders.Add(subfold);
+                //proj.Folders.Add(fold);
+                //fold = new Folder();
+                //fold.folderName = "Locations";
+                //proj.Folders.Add(fold);
+                //fold = new Folder();
+                //fold.folderName = "Plot Line";
+                //subfold = new Folder();
+                //subfold.folderName = "Events";
+                //fold.SubFolders.Add(subfold);
+                //proj.Folders.Add(fold);
+                //proj = new NovelProject();
+                //context.NovelProjects.Add(proj);
 
-                proj = new NovelProject();
-                proj.ProjectName = "Rift Incursion";
-                fold = new Folder();
-                subfold = new Folder();
-                fold.folderName = "Characters";
-                subfold = new Folder();
-                subfold.folderName = "Good";
-                fold.SubFolders.Add(subfold);
-                subfold = new Folder();
-                subfold.folderName = "Bad";
-                fold.SubFolders.Add(subfold);
-                subfold = new Folder();
-                subfold.folderName = "Neutral";
-                fold.SubFolders.Add(subfold);
-                proj.Folders.Add(fold);
-                fold = new Folder();
-                fold.folderName = "Locations";
-                proj.Folders.Add(fold);
-                fold = new Folder();
-                fold.folderName = "Plot Line";
-                subfold = new Folder();
-                subfold.folderName = "Events";
-                fold.SubFolders.Add(subfold);
-                proj.Folders.Add(fold);
-                proj = new NovelProject();
-                context.NovelProjects.Add(proj);
+                //proj = new NovelProject();
+                //proj.ProjectName = "Rift Incursion";
+                //fold = new Folder();
+                //subfold = new Folder();
+                //fold.folderName = "Characters";
+                //subfold = new Folder();
+                //subfold.folderName = "Good";
+                //fold.SubFolders.Add(subfold);
+                //subfold = new Folder();
+                //subfold.folderName = "Bad";
+                //fold.SubFolders.Add(subfold);
+                //subfold = new Folder();
+                //subfold.folderName = "Neutral";
+                //fold.SubFolders.Add(subfold);
+                //proj.Folders.Add(fold);
+                //fold = new Folder();
+                //fold.folderName = "Locations";
+                //proj.Folders.Add(fold);
+                //fold = new Folder();
+                //fold.folderName = "Plot Line";
+                //subfold = new Folder();
+                //subfold.folderName = "Events";
+                //fold.SubFolders.Add(subfold);
+                //proj.Folders.Add(fold);
+                //proj = new NovelProject();
+                //context.NovelProjects.Add(proj);
             }
         }
+
         #region Routed Commands
 
         private void TabCloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -173,10 +176,11 @@ namespace NoveliserWPF
             ContextMenu cm = new ContextMenu();
             ti.Name = "startPageTab";
             ti.Header = "Start Page";
+            ti.Margin = new Thickness(0);
             Frame fr = new Frame();
             StartPage startPage = new StartPage();
-            fr.Margin = new Thickness(0, 0, 0, 0);
-            fr.Padding = new Thickness(35, 35, 35, 35);
+            fr.Margin = new Thickness(-5, -2, 0, 0);
+            fr.Padding = new Thickness(35);
             BrushConverter bc = new BrushConverter();
             Brush brush = (Brush)bc.ConvertFrom("#454854");
             if (brush != null)
@@ -186,6 +190,31 @@ namespace NoveliserWPF
             }
             startPage.Margin = new Thickness(0, 0, 0, 0);
             fr.Content = startPage;
+            ti.Content = fr;
+            MainTabs.Items.Add(ti);
+        }
+
+        private void ShowTextPage(int id, string name)
+        {
+            TabItem ti = new TabItem();
+            ContextMenu cm = new ContextMenu();
+            ti.Name = "textPage" + id;
+            ti.Header = name;
+            ti.Margin = new Thickness(0);
+            Frame fr = new Frame();
+            TextControl textControl = new TextControl(id);
+            fr.Margin = new Thickness(-5, -2, 0, 0);
+            fr.Padding = new Thickness(10);
+            //BrushConverter bc = new BrushConverter();
+            //Brush brush = (Brush)bc.ConvertFrom("#454854");
+            //if (brush != null)
+            //{
+            //    brush.Freeze();
+            //    fr.Background = brush;
+            //}
+            fr.Background = Brushes.Silver;
+            textControl.Margin = new Thickness(0, 0, 0, 0);
+            fr.Content = textControl;
             ti.Content = fr;
             MainTabs.Items.Add(ti);
         }
@@ -323,7 +352,7 @@ namespace NoveliserWPF
 
         private void SearchBox_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            SearchMenuItem.IsSubmenuOpen = false;
+            //SearchMenuItem.IsSubmenuOpen = false;
         }
 
         #endregion
